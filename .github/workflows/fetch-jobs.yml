@@ -1,0 +1,37 @@
+name: Fetch Content Producer jobs (Malmö/Skåne)
+
+on:
+  schedule:
+    # 06:00 UTC ≈ 07:00/08:00 svensk tid
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch jobs from Platsbanken
+        run: node scripts/fetch-jobs.mjs
+
+      - name: Commit updated job list
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data/jobs.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: update job listings"
+            git push
+          fi

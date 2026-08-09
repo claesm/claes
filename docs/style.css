@@ -1,0 +1,254 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f6f7fb;
+  --panel: #ffffff;
+  --text: #1c1e26;
+  --muted: #5b5f6d;
+  --border: #e2e4ec;
+  --accent: #2f5df5;
+  --accent-contrast: #ffffff;
+  --new-badge: #16a34a;
+  --remote-badge: #7c3aed;
+  --danger: #d33;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14151b;
+    --panel: #1d1f27;
+    --text: #edeef3;
+    --muted: #a3a7b7;
+    --border: #2b2d38;
+    --accent: #6d8bff;
+    --accent-contrast: #0e0f14;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.page-header {
+  padding: 2rem 1.5rem 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.page-header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+}
+
+.meta {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+#controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.field input[type="text"] {
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  min-width: 240px;
+}
+
+.field.checkbox {
+  flex-direction: row;
+  align-items: center;
+}
+
+.field.checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+button {
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.05);
+}
+
+.hint {
+  width: 100%;
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.jobs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.empty-state {
+  color: var(--muted);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.job-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  position: relative;
+}
+
+.job-card h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1.05rem;
+}
+
+.job-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.job-card h3 a:hover {
+  text-decoration: underline;
+}
+
+.job-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0 0 0.5rem;
+}
+
+.job-snippet {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 0.6rem;
+}
+
+.badges {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  color: white;
+}
+
+.badge.new {
+  background: var(--new-badge);
+}
+
+.badge.remote {
+  background: var(--remote-badge);
+}
+
+.job-actions {
+  margin-top: 0.6rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.job-actions button {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-weight: 500;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+.job-card.hidden-job {
+  display: none;
+}
+
+.source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.source-links a {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.source-links a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+footer a {
+  color: var(--muted);
+}
