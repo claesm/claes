@@ -14,11 +14,11 @@ a free public search API.
   Malmö/Skåne (or explicitly remote), and writes the result to
   `docs/data/jobs.json`. It merges with previous results so nothing is lost,
   marks newly-seen ads, and prunes ads whose application deadline has passed.
-- **`.github/workflows/fetch-jobs.yml`** — runs that script once a day
-  (06:00 UTC) via GitHub Actions and commits the updated `jobs.json`. This is
-  what makes the search run "on its own" — no server needed, and it keeps
-  working even when nobody has the page open. You can also trigger it
-  manually from the *Actions* tab (`workflow_dispatch`).
+- **`.github/workflows/fetch-jobs.yml`** — runs `fetch-jobs.mjs` and commits
+  the updated `jobs.json`. **Automatic scheduling is currently turned off**
+  (no `schedule` trigger) — run it manually from the *Actions* tab via
+  "Run workflow" whenever you want fresh data. Re-enable automation later by
+  adding back a `schedule:` block with a cron expression.
 - **`docs/`** — a static web page (plain HTML/CSS/JS, no build step) that
   reads `docs/data/jobs.json` and shows the ads as cards, with:
   - a keyword filter and a "Malmö only" toggle,
@@ -38,11 +38,11 @@ a free public search API.
    Source: "Deploy from a branch"*, branch `claude/job-search-web-solution-p7d5jg`
    (or `main` after merging), folder **`/docs`**. The page will then be live
    at `https://<user>.github.io/<repo>/`.
-2. **Let the workflow run once** (it fires automatically on schedule, or
-   trigger it manually from the Actions tab) so `docs/data/jobs.json` gets
-   populated for the first time.
-3. Open the page — it auto-loads the latest cached results and keeps
-   checking Platsbanken daily from then on, no further action needed.
+2. **Run the workflow manually once** (Actions tab → "Fetch Content Producer
+   jobs (Malmö/Skåne)" → "Run workflow") so `docs/data/jobs.json` gets
+   populated for the first time. Automatic scheduling is off, so re-run it
+   manually whenever you want fresh listings, or use the "Sök live nu"
+   button on the page for an on-demand check.
 
 ## Running locally
 

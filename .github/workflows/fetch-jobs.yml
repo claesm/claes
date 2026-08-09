@@ -1,9 +1,8 @@
 name: Fetch Content Producer jobs (Malmö/Skåne)
 
+# Automatisk schemaläggning avstängd på begäran.
+# Kör manuellt vid behov via fliken "Actions" -> "Run workflow".
 on:
-  schedule:
-    # 06:00 UTC ≈ 07:00/08:00 svensk tid
-    - cron: "0 6 * * *"
   workflow_dispatch: {}
 
 permissions:
