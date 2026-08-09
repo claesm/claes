@@ -1,5 +1,3 @@
-> Also in this repo: [Content Producer job search (Malmö/Skåne)](./JOB_SEARCH.md) — an automated job listing tool that watches Platsbanken and links out to other job boards.
-
 # Christmas Countdown - Apple Watch App
 
 A festive Apple Watch app that counts down the days until Christmas Eve!
