@@ -1,0 +1,130 @@
+:root {
+  color-scheme: dark;
+  --bg: #1b1d24;
+  --panel: #24262f;
+  --line: #3a3d4a;
+  --text: #eceef3;
+  --muted: #9a9dab;
+  --accent-x: #5ba7ff;
+  --accent-o: #ff7a7a;
+  --win: #4fd18b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+select,
+button {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+}
+
+button {
+  cursor: pointer;
+  background: #3a6ff0;
+  border-color: #3a6ff0;
+  color: white;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #2f5cd0;
+}
+
+.status {
+  min-height: 1.2em;
+  margin: 0;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 92px);
+  grid-template-rows: repeat(3, 92px);
+  gap: 8px;
+  background: var(--line);
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--panel);
+  border: none;
+  border-radius: 8px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.cell:hover:not(:disabled) {
+  background: #2c2f3a;
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cell.x {
+  color: var(--accent-x);
+}
+
+.cell.o {
+  color: var(--accent-o);
+}
+
+.cell.win {
+  background: rgba(79, 209, 139, 0.18);
+  color: var(--win);
+}

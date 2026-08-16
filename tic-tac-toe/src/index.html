@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'"
+  />
+  <title>Tic-Tac-Toe vs AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>Tic-Tac-Toe</h1>
+
+    <div class="controls">
+      <label>
+        Difficulty
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard" selected>Unbeatable</option>
+        </select>
+      </label>
+
+      <label>
+        Play as
+        <select id="playerSymbol">
+          <option value="X" selected>X (first)</option>
+          <option value="O">O (second)</option>
+        </select>
+      </label>
+
+      <button id="newGame">New Game</button>
+    </div>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <div id="board" class="board"></div>
+  </main>
+
+  <script src="gameLogic.js"></script>
+  <script src="ai.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>
