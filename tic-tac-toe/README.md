@@ -17,6 +17,28 @@ npm install
 npm start
 ```
 
+## Building a macOS app
+
+```bash
+npm install
+npm run dist:mac
+```
+
+This produces `Tic-Tac-Toe.app` under `dist/mac` (Intel) / `dist/mac-arm64`
+(Apple Silicon), plus a `.dmg` and `.zip` in `dist/`, via
+[electron-builder](https://www.electron.build/). Run it with:
+
+```bash
+open "dist/mac/Tic-Tac-Toe.app"
+```
+
+The build is unsigned/not notarized. On first launch, macOS Gatekeeper will
+block it — right-click the app and choose "Open" once to bypass this, or
+strip the quarantine flag: `xattr -cr "dist/mac/Tic-Tac-Toe.app"`. Building
+must be done on macOS if you want code signing and notarization (Apple's
+codesign tooling isn't available on other platforms); an unsigned `.app` can
+be produced from any OS.
+
 ## Project structure
 
 - `main.js` — Electron main process; creates the app window.
