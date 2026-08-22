@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tic&nbsp;Tac&nbsp;Toe</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="card">
+    <header class="header">
+      <h1>Tic Tac Toe</h1>
+      <p class="subtitle">You <span class="chip chip-x">👧 Girl</span> vs Computer <span class="chip chip-o">🐸 Frog</span></p>
+    </header>
+
+    <section class="scoreboard" aria-label="Score">
+      <div class="score">
+        <span class="score-label">You</span>
+        <span class="score-value" id="scoreX">0</span>
+      </div>
+      <div class="score">
+        <span class="score-label">Ties</span>
+        <span class="score-value" id="scoreTie">0</span>
+      </div>
+      <div class="score">
+        <span class="score-label">Computer</span>
+        <span class="score-value" id="scoreO">0</span>
+      </div>
+    </section>
+
+    <p class="status" id="status" role="status" aria-live="polite">Your turn</p>
+
+    <div class="board" id="board">
+      <button class="cell" data-index="0" aria-label="Row 1, Column 1"></button>
+      <button class="cell" data-index="1" aria-label="Row 1, Column 2"></button>
+      <button class="cell" data-index="2" aria-label="Row 1, Column 3"></button>
+      <button class="cell" data-index="3" aria-label="Row 2, Column 1"></button>
+      <button class="cell" data-index="4" aria-label="Row 2, Column 2"></button>
+      <button class="cell" data-index="5" aria-label="Row 2, Column 3"></button>
+      <button class="cell" data-index="6" aria-label="Row 3, Column 1"></button>
+      <button class="cell" data-index="7" aria-label="Row 3, Column 2"></button>
+      <button class="cell" data-index="8" aria-label="Row 3, Column 3"></button>
+    </div>
+
+    <div class="controls">
+      <label class="difficulty">
+        Difficulty
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard" selected>Unbeatable</option>
+        </select>
+      </label>
+      <button class="btn" id="resetBtn">New Game</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
